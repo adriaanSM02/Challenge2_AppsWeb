@@ -16,6 +16,7 @@
         </style>
 </head> 
 <body>
+<h1 style="font-size: 30px; font-weight: bold; color: blue;">{{ $page_title }}</h1>
   <table>
     <thead>
         <tr>
