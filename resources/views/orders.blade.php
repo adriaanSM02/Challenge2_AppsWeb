@@ -17,36 +17,38 @@
 </head> 
 <body>
   <table>
-     <head>
-     <tr>
-     <th>Customer ID</th>
-     <th>Staff ID</th>
-     <th>Total</th>
-     <th>Subtotal</th>
-     <th>VAT</th>
-     <th>Status</th>
-     <th>Notes</th>
-     <th>DateNtime</th>
-     <th>Photo 1</th>
-     <th>Photo 2</th>
-     </tr>
-     </head>
-     <body>
-     <tr>
-     <td> {{ $orders->customer_id }} </td>
-     <td> {{ $orders->staff_id }} </td>
-     <td> {{ $orders->total }} </td>
-     <td> {{ $orders->subtotal }} </td>
-     <td> {{ $orders->vat }} </td>
-     <td> {{ $orders->status }} </td>
-     <td> {{ $orders->dateNtime }} </td>
-     <td> {{ $orders->photo1 }} </td>
-     <td> {{ $orders->photo2 }} </td>
-     </tr>
-     </body>
-  </table>
-  
-  <br> 
+    <thead>
+        <tr>
+          <th>Customer ID</th>
+          <th>Staff ID</th>
+          <th>Total</th>
+          <th>Subtotal</th>
+          <th>VAT</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>DateNtime</th>
+          <th>Photo 1</th>
+          <th>Photo 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($db as $orders)
+        <tr>
+            <td> {{ $orders->customer_id }} </td>
+            <td> {{ $orders->staff_id }} </td>
+            <td> {{ $orders->total }} </td>
+            <td> {{ $orders->subtotal }} </td>
+            <td> {{ $orders->vat }} </td>
+            <td> {{ $orders->status }} </td>
+            <td> {{ $orders->dateNtime }} </td>
+            <td> {{ $orders->photo1 }} </td>
+            <td> {{ $orders->photo2 }} </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+<br><br>
   
   <a href="{{ route('orders') }}"> Orders </a> 
 
