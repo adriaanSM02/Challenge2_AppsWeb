@@ -16,31 +16,35 @@
         </style>
 </head> 
 <body>
-  <table>
-     <head>
-     <tr>
-     <th>Name</th>
-     <th>Stock</th>
-     <th>Price</th>
-     <th>Description</th>
-     <th>Photo</th>
-     <th>Active</th>
-     </tr>
-     </head>
-     <body>
-     <tr>
-     <td> {{ $products->name }} </td>
-     <td> {{ $products->stock }} </td>
-     <td> {{ $products->price }} </td>
-     <td> {{ $products->description }} </td>
-     <td> {{ $products->active }} </td>
-     </tr>
-     </body>
-  </table>
+  <h1 style="font-size: 30px; font-weight: bold; color: blue;">{{ $page_title }}</h1>
+<table>
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Stock</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Photo</th>
+          <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($db as $products)
+        <tr>
+          <td> {{ $products->name }} </td>
+          <td> {{ $products->stock }} </td>
+          <td> {{ $products->price }} </td>
+          <td> {{ $products->description }} </td>
+          <td> {{ $products->photo }} </td>
+          <td> {{ $products->active }} </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+<br><br>
   
-  <br> 
-  
-  <a href="{{ route('products') }}"> products </a> 
+<a href="{{ route('products') }}"> Products </a> 
 
 </body>
 </html>
