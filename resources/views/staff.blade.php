@@ -16,32 +16,35 @@
         </style>
 </head> 
 <body>
-  <table>
-     <head>
-     <tr>
-     <th>Name</th>
-     <th>Role</th>
-     <th>Email</th>
-     <th>Password</th>
-     <th>Tax ID</th>
-     <th>Active</th>
-     </tr>
-     </head>
-     <body>
-     <tr>
-     <td> {{ $staff->name }} </td>
-     <td> {{ $staff->role }} </td>
-     <td> {{ $staff->email }} </td>
-     <td> {{ $staff->password }} </td>
-     <td> {{ $staff->tax_id }} </td>
-     <td> {{ $staff->active }} </td>
-     </tr>
-     </body>
-  </table>
+  <h1 style="font-size: 30px; font-weight: bold; color: blue;">{{ $page_title }}</h1>
+<table>
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Tax ID</th>
+          <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($db as $staff)
+        <tr>
+          <td> {{ $staff->name }} </td>
+          <td> {{ $staff->role }} </td>
+          <td> {{ $staff->email }} </td>
+          <td> {{ $staff->password }} </td>
+          <td> {{ $staff->tax_id }} </td>
+          <td> {{ $staff->active }} </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+<br><br>
   
-  <br> 
-  
-  <a href="{{ route('staff') }}"> Staffs </a> 
+<a href="{{ route('staff') }}"> Staff </a> 
 
 </body>
 </html>
