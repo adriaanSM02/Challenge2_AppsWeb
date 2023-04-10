@@ -9,14 +9,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Staff>
  */
 class StaffFactory extends Factory
-=======
-use Illuminate\Support\Str;
-
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
-class StaffFacttory extends Factory
->>>>>>> aa9685103967cb82859d3b9ad7f685a259400117
 {
     /**
      * Define the model's default state.
@@ -26,7 +18,6 @@ class StaffFacttory extends Factory
     public function definition(): array
     {
         return [
-<<<<<<< HEAD
             'name' => $this->faker->name(),
             'role' => $this->faker->name(),
             'email' => fake()->unique()->safeEmail(),
@@ -36,17 +27,4 @@ class StaffFacttory extends Factory
 
         ];
     }
-=======
-            'name' =>  $this->faker->name(),
-            'role'=>  $this->faker->randomElement(['Employee', 'Manager', 'CEO']),
-            'email' =>  $this->faker->email(),
-            'password' =>  $this->faker->str_random(10),
-            'tax_id' =>$this->faker->str_random(13),
-            'active' =>$faker->randomElement(['yes', 'no']),
-            
-        ]; 
-    }
-
-    
->>>>>>> aa9685103967cb82859d3b9ad7f685a259400117
 }
