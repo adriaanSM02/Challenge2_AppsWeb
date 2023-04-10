@@ -35,7 +35,7 @@
           <td> {{ $products->stock }} </td>
           <td> {{ $products->price }} </td>
           <td> {{ $products->description }} </td>
-          <td> {{ $products->photo }} </td>
+          <td> <img src="{{ $products->photo }}"style= "width:100px; height:100px;" ></td>
           <td> {{ $products->active }} </td>
         </tr>
         @endforeach
