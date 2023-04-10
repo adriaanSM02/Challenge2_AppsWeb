@@ -21,5 +21,12 @@ use App\Http\Controllers\ProductsController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/clients', [ClientsController::class, 'clientsDB'])->name('clients'); 
 
 Route::get('/orders', [OrdersController::class, 'ordersDB'])->name('orders');
+
+Route::get('/orderdetails', [OrderdetailsController::class, 'orderdetailsDB'])->name('orderdetails'); 
+
+Route::get('/staff', [StaffController::class, 'staffDB'])->name('staff'); 
+
+Route::get('/products', [ProductsController::class, 'productsDB'])->name('products'); 
