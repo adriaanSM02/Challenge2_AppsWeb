@@ -44,7 +44,10 @@
 
 <br><br>
   
-<a href="{{ route('products') }}"> Products </a> 
+<a href="{{route('clients')}}"> Clients </a>
+<a href="{{ route('orderdetails') }}"> Orders Details </a> 
+<a href="{{ route('orders') }}"> Orders </a>
+<a href="{{ route('staff') }}"> Staff </a>  
 
 </body>
 </html>
