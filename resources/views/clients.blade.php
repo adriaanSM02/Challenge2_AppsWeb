@@ -41,7 +41,7 @@
   
   <br> 
   
-  <a href="{{ route('clients') }}"> Clients </a> 
+  <a href="{{route('clients')}}"> Clients </a> 
 
 </body>
 </html>
