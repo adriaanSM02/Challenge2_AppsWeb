@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class ClientsFacttory extends Factory
+class StaffFacttory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,11 +18,10 @@ class ClientsFacttory extends Factory
     public function definition(): array
     {
         return [
-            'name' =>  $this->faker->name(),    
+            'name' =>  $this->faker->name(),
+            'role'=>  $this->faker->randomElement(['Employee', 'Manager', 'CEO']),
             'email' =>  $this->faker->email(),
             'password' =>  $this->faker->str_random(10),
-            'phone' => $this->faker->float_random(10),
-            'address' => $this->faker->str_random(30),
             'tax_id' =>$this->faker->str_random(13),
             'active' =>$faker->randomElement(['yes', 'no']),
             
