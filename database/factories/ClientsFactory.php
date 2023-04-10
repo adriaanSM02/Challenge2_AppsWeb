@@ -20,11 +20,11 @@ class ClientsFacttory extends Factory
         return [
             'name' =>  $this->faker->name(),    
             'email' =>  $this->faker->email(),
-            'password' =>  $this->faker->str_random(10),
+            'password' => $this->faker->str_random(10),
             'phone' => $this->faker->float_random(10),
             'address' => $this->faker->str_random(30),
             'tax_id' =>$this->faker->str_random(13),
-            'active' =>$faker->randomElement(['yes', 'no']),
+            'active' =>$this ->$faker->randomElement(['yes', 'no']),
             
         ]; 
     }
