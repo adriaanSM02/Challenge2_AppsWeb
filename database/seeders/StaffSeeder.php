@@ -13,10 +13,6 @@ class StaffSeeder extends Seeder
      */
     public function run(): void
     {
-<<<<<<< HEAD
-        //
-=======
-       
->>>>>>> aa9685103967cb82859d3b9ad7f685a259400117
+        
     }
 }
