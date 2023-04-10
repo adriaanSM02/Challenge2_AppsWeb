@@ -17,6 +17,7 @@
 </head> 
 <body>
 <table>
+<h1 style="font-size: 30px; font-weight: bold; color: blue;">{{ $page_title }}</h1>
     <thead>
         <tr>
           <th>Name</th>
