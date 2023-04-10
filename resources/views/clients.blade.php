@@ -29,12 +29,12 @@
      </head>
      <body>
      <tr>
-     <td> {{ $clientsDB->name }} </td>
-     <td> {{ $clientsDB->email }} </td>
-     <td> {{ $clientsDB->password }} </td>
-     <td> {{ $clientsDB->phone }} </td>
-     <td> {{ $clientsDB->address }} </td>
-     <td> {{ $clientsDB->tax_id }} </td>
+     <td> {{ $clients->name }} </td>
+     <td> {{ $clients->email }} </td>
+     <td> {{ $clients->password }} </td>
+     <td> {{ $clients->phone }} </td>
+     <td> {{ $clients->address }} </td>
+     <td> {{ $clients->tax_id }} </td>
      </tr>
      </body>
   </table>
