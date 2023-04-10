@@ -16,32 +16,34 @@
         </style>
 </head> 
 <body>
-  <table>
-     <head>
-     <tr>
-     <th>Name</th>
-     <th>Email</th>
-     <th>Password</th>
-     <th>Phone</th>
-     <th>Address</th>
-     <th>tax_id</th>
-     </tr>
-     </head>
-     <body>
-     <tr>
-     <td> {{ $clients->name }} </td>
-     <td> {{ $clients->email }} </td>
-     <td> {{ $clients->password }} </td>
-     <td> {{ $clients->phone }} </td>
-     <td> {{ $clients->address }} </td>
-     <td> {{ $clients->tax_id }} </td>
-     </tr>
-     </body>
-  </table>
+<table>
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>tax_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($db as $clients)
+        <tr>
+          <td> {{ $clients->name }} </td>
+          <td> {{ $clients->email }} </td>
+          <td> {{ $clients->password }} </td>
+          <td> {{ $clients->phone }} </td>
+          <td> {{ $clients->address }} </td>
+          <td> {{ $clients->tax_id }} </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+<br><br>
   
-  <br> 
-  
-  <a href="{{route('clients')}}"> Clients </a> 
+<a href="{{route('clients')}}"> Clients </a>
 
 </body>
 </html>
