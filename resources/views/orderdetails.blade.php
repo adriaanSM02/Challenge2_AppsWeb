@@ -16,28 +16,31 @@
         </style>
 </head> 
 <body>
-  <table>
-     <head>
-     <tr>
-     <th>Order ID</th>
-     <th>Product ID</th>
-     <th>Quantity</th>
-     <th>Active</th>
-     </tr>
-     </head>
-     <body>
-     <tr>
-     <td> {{ $orderdetails->order_id }} </td>
-     <td> {{ $orderdetails->product_id }} </td>
-     <td> {{ $orderdetails->quantity }} </td>
-     <td> {{ $orderdetails->active }} </td>
-     </tr>
-     </body>
-  </table>
+<h1 style="font-size: 30px; font-weight: bold; color: blue;">{{ $page_title }}</h1>
+<table>
+    <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product ID</th>
+          <th>Quantity</th>
+          <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($db as $orderdetails)
+        <tr>
+          <td> {{ $orderdetails->order_id }} </td>
+          <td> {{ $orderdetails->product_id }} </td>
+          <td> {{ $orderdetails->quantity }} </td>
+          <td> {{ $orderdetails->active }} </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
+<br><br>
   
-  <br> 
-  
-  <a href="{{ route('orderdetails') }}"> Orders Details </a> 
+<a href="{{ route('orderdetails') }}"> Orders Details </a> 
 
 </body>
 </html>
