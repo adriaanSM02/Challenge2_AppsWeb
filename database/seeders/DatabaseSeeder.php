@@ -6,6 +6,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Products;
 use App\Models\orderdetails;
+use App\Models\Staff;
+use App\Models\Clients;
+use App\Models\Orders;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,6 +29,28 @@ class DatabaseSeeder extends Seeder
         ]);
 
         orderdetails::factory(15)->create();
+
+        $this->call([
+            StaffSeeder::class
+        ]);
+
+        Staff::factory(15)->create();
+
+
+        $this->call([
+            ClientsSeeder::class
+        ]);
+
+        Clients::factory(15)->create();
+
+        $this->call([
+            OrdersSeeder::class
+        ]);
+
+        Orders::factory(15)->create();
+
+       
+
     }
 
 }

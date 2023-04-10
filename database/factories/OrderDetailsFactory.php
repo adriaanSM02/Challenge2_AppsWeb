@@ -21,6 +21,7 @@ class OrderDetailsFactory extends Factory
             'product_id' => $this->faker->numberBetween(1,1000),
             'quantity' => $this->faker->randomFloat(2,50,100),
             'active' => $this->faker->randomElement(['0','1'])
+
         ];
     }
 }
