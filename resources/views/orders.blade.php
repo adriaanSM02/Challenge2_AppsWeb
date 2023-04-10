@@ -41,6 +41,7 @@
             <td> {{ $orders->subtotal }} </td>
             <td> {{ $orders->vat }} </td>
             <td> {{ $orders->status }} </td>
+            <td> {{ $orders->notes }} </td>
             <td> {{ $orders->dateNtime }} </td>        
             <td> <img src="{{ $orders->photo1 }}"style= "width:100px; height:100px;" ></td>
             <td> <img src="{{ $orders->photo2 }}"style= "width:100px; height:100px;" ></td>
