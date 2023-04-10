@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
             OrderDetailSeeder::class
         ]);
 
-<<<<<<< HEAD
         orderdetails::factory(15)->create();
 
         $this->call([
@@ -51,13 +50,6 @@ class DatabaseSeeder extends Seeder
         Orders::factory(15)->create();
 
        
-
-=======
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
->>>>>>> aa9685103967cb82859d3b9ad7f685a259400117
     }
 
 }
