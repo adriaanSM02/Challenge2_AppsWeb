@@ -9,7 +9,7 @@ class ClientsController extends Controller
 {
     function clientsDB(){
 
-        $page_title = 'clients';
+        $page_title = 'Clients';
         $db = Clients::all();
 
         return view ('/clients', compact('page_title','db'));
