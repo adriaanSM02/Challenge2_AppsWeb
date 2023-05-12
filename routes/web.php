@@ -15,16 +15,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sales', function () {
-    return view('sales');
+Route::get('/clientsResult', function () {
+    return view('clientsResult');
 });
-
 
 Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/orders', 
-[OrdersController::class, 'ordersDB'])->
-name('orders');
 
+Route::get('/sales', function () {
+    return view('sales');
+});
+
+
+Route::get('/purchasing', function () {
+    return view('purchasing');
+});
+
+Route::get('/route', function () {
+    return view('route');
+});
+
+Route::get('/warehouse', function () {
+    return view('warehouse');
+});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
