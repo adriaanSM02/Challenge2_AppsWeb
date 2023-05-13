@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Products;
+use App\Models\Requests;
 
-class ProductsController extends Controller
+class RequestsController extends Controller
 {
         /**
      * Display a listing of the resource.

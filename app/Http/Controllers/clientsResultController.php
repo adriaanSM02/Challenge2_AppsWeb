@@ -7,11 +7,59 @@ use App\Models\clientsResult;
 
 class ClientsResultController extends Controller
 {
-    function clientsDB(){
+        /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
 
-        $page_title = 'Clients';
-        $db = Clients::all();
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
 
-        return view ('/clients', compact('page_title','db'));
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Clients $clients)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Clients $clients)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Clients $clients)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Clients $clients)
+    {
+        //
     }
 }

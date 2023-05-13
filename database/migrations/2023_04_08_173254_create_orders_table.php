@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("customer_id");
-            $table->foreignId("staff_id");
-            $table->float("total");
-            $table->float("subtotal");
-            $table->float("vat");
-            $table->string("status");
+            $table->foreignId('client_id')->constrained('clients');
+            $table->tinyInteger('status');
+            $table->double('subtotal', 8, 2);
+            $table->double('tax', 8, 2);
+            $table->double('total', 8, 2);
             $table->string("notes");
             $table->dateTime("dateNtime");
             $table->string("photo1");
-            $table->string("photo2");
             $table->integer("active");
             $table->timestamps();
         });

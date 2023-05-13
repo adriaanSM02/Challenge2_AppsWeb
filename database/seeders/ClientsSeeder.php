@@ -13,6 +13,7 @@ class ClientsSeeder extends Seeder
      */
     public function run(): void
     {
-       
+        // $client1 = new Clients;
+        // $client1->
     }
 }

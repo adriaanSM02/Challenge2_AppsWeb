@@ -18,12 +18,9 @@ class ClientsFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' =>  $this->faker->name(),    
-            'email' => fake()->unique()->safeEmail(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC',
-            'phone' => $this->faker->numberBetween(7000000000,7229999999),
-            'address' => Str::random(10),
-            'tax_id' =>$this->faker->numberBetween(1,1000),
+            'uuid' => $this->faker->uuid(),
+            'name' =>  $this->faker->firstName(),    
+            'tax_id' => $this->faker->numberBetween(1111111111111, 9999999999999),
             'active' =>$this->faker->randomElement(['0','1'])
             
         ]; 

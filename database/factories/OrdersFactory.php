@@ -16,16 +16,14 @@ class OrdersFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id' => $this->faker->numberBetween(1,1000),
-            'staff_id' => $this->faker->numberBetween(1,1000),
-            'total' => $this->faker->randomFloat(4,50,100),
-            'subtotal' => $this->faker->randomFloat(4,50,100),
-            'vat' => $this->faker->randomFloat(2,50,100),
-            'status' => "sale",
+            'client_id' => $this->faker->numberBetween(1,10),
+            'status' => $this->faker->numberBetween(0, 4),
+            'subtotal' => $subtotal,
+            'tax' => $tax,
+            'total' => $total,
             'notes' => "Comments",
             'dateNtime' => $this->faker->dateTimeThisMonth(),
             'photo1' => "https://picsum.photos/400/200",
-            'photo2' => "https://picsum.photos/400/200",
             'active' => $this->faker->randomElement(['0','1'])
 
         ];
