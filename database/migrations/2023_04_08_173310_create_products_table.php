@@ -17,7 +17,6 @@ return new class extends Migration
             $table->double('price', 8, 2);
             $table->integer('stock');
             $table->string('description');
-            $table->integer("active");
             $table->timestamps();
         });
     }

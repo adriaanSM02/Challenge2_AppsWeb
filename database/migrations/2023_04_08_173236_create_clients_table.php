@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->string('name', 150);
-            $table->string('tax_id');
+            $table->string('tax_id', 15);
             $table->integer('active');
             $table->timestamps();
         });

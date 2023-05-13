@@ -15,6 +15,11 @@ class OrdersFactory extends Factory
      */
     public function definition(): array
     {
+
+        $subtotal = $this->faker->randomFloat(2, 100, 9999);
+        $tax = $subtotal*.16;
+        $total = $subtotal + $tax;
+        
         return [
             'client_id' => $this->faker->numberBetween(1,10),
             'status' => $this->faker->numberBetween(0, 4),
