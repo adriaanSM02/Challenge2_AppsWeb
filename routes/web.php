@@ -5,6 +5,7 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\OrderdetailsController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\SalesController;
 
 
 
@@ -23,11 +24,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
-
-Route::get('/sales', function () {
-    return view('sales');
-});
-
+Route::get('/sales', [SalesController::class, 'store'])->name('sales.store');
 
 Route::get('/purchasing', function () {
     return view('purchasing');
