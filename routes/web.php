@@ -45,4 +45,16 @@ Route::get('/purchasing', [PurchasingController::class, 'todo'])
     ->name('purchasing.index')
     ->middleware('auth');
 
+    Route::get('/route', [RouteController::class, 'mostrar'])
+    ->name('route.edit')
+    ->middleware('auth');
+   
+    Route::post('update-status', [RouteController::class, 'updateStatus'])
+    ->name('update-status');
+
+    
+    Route::get('/route/all', [RouteController::class, 'all'])
+    ->name('route.index')
+    ->middleware('auth');
+
 require __DIR__.'/auth.php';

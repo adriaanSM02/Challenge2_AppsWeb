@@ -34,7 +34,7 @@
     
     .formulario button[type="submit"] {
         padding: 10px;
-        background-color: #4CAF50;
+        background-color: #167CA5;
         color: #fff;
         border: none;
         border-radius: 3px;
@@ -42,7 +42,7 @@
     }
     
     .formulario button[type="submit"]:hover {
-        background-color: #45a049;
+        background-color: #051644;
     }
 </style>
 <a href="{{ route('sales.index') }}">Show All Orders</a>

@@ -17,7 +17,7 @@ class DashboardController extends Controller
                 return view('dashboard', compact('page_title'));
                 break;
             case 1:
-                return redirect()->route('sales.create');
+                return redirect()->route('sales.index');
                 break;
             case 2:
                 $page_title = 'You are in the warehouse department';
@@ -27,9 +27,9 @@ class DashboardController extends Controller
                     return redirect()->route('purchasing.index');
                     break;
             case 4:
-                $page_title = 'You are in the route department';
-                return view('route.index', compact('page_title'));
-                break;
+                return redirect()->route('route.index');
+                    break;
+                
         }
     }
 
