@@ -24,10 +24,9 @@ class DashboardController extends Controller
                 $page_title = 'You are in the warehouse department';
                 return view('warehouse.index', compact('page_title'));
                 break;
-            case 3:
-                $page_title = 'You are in the purchasing department';
-                return view('purchasing.index', compact('page_title'));
-                break;
+                case 3:
+                    return redirect()->route('purchasing.index');
+                    break;
             case 4:
                 $page_title = 'You are in the route department';
                 return view('route.index', compact('page_title'));
