@@ -28,9 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('sales', SalesController::class)->middleware('auth');
-//Route::get('/dashboard', [PurchasingController::class, 'index'])->name('purchasing.index');
-//Route::get('/dashboard', [PurchasingController::class, 'todo'])->name('purchasing.index');
+
+Route::get('/sales', [SalesController::class, 'store'])
+    ->name('sales.create')
+    ->middleware('auth');
+
 Route::get('/purchasing', [PurchasingController::class, 'todo'])
     ->name('purchasing.index')
     ->middleware('auth');
