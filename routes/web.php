@@ -29,6 +29,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('sales', SalesController::class)->middleware('auth');
-Route::get('/purchasing', [PurchasingController::class, 'index'])->name('purchasing.index');
+Route::get('/dashboard', [PurchasingController::class, 'index'])->name('purchasing.index');
 
 require __DIR__.'/auth.php';
