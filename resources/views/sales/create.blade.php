@@ -83,6 +83,7 @@ background-color: #167CA5;
     <ul>
         <a href="{{ route('sales.index') }}">Show All Orders</a>
         <a href="{{ route('sales.delete') }}">Delete Orders</a>
+        <li><a href="{{ route('sales.edit') }}">Edit Order</a></li>
 
     </ul>
 

@@ -89,4 +89,34 @@ class SalesController extends Controller
     
         return redirect()->route('sales.index')->with('success', 'Selected orders have been deleted.');
     }
+
+
+    public function editt()
+    {
+        $page_title = 'Edit Order';
+        $orders = Orders::all();
+    
+        return view('sales.edit', compact('page_title', 'orders'));
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $id = $request->input('id');
+        $order = Orders::find($id);
+        
+        $order->status = $request->input('status');
+        $order->subtotal = $request->input('subtotal');
+        $order->tax = $request->input('tax');
+        $order->Total = $request->input('total');
+        $order->Notes = $request->input('notes');
+        $order->active = $request->input('active');
+
+        $order->save();
+    
+    
+    
+        return redirect()->back()->with('success', 'Pedido actualizado exitosamente');
+    }
+    
 }
+

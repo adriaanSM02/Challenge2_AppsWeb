@@ -40,16 +40,23 @@ Route::get('/sales/create', [SalesController::class, 'mostrar'])
     ->name('sales.index')
     ->middleware('auth');
 
-    
-    
+
     Route::get('/sales/delete/', [SalesController::class, 'deletee'])
     ->name('sales.delete')
     ->middleware('auth');
     
-    Route::delete('/sales/delete/', [SalesController::class, 'delete'])
+    Route::delete('/sales/delete', [SalesController::class, 'delete'])
     ->name('sales.delete')
     ->middleware('auth');
 
+
+    Route::get('/sales/edit', [SalesController::class, 'editt'])
+    ->name('sales.edit')
+    ->middleware('auth');
+
+
+    Route::put('update-status', [SalesController::class, 'updateStatus'])
+    ->name('update-status');
 
 Route::get('/purchasing', [PurchasingController::class, 'todo'])
     ->name('purchasing.index')

@@ -83,6 +83,7 @@ background-color: #167CA5;
     <ul>
         <li><a href="{{ route('sales.create') }}">Create a Order</a></li>
         <li><a href="{{ route('sales.index') }}">Show All</a></li>
+        <li><a href="{{ route('sales.edit') }}">Edit Order</a></li>
 
     </ul>
 
@@ -134,7 +135,7 @@ background-color: #167CA5;
                         <th>Active</th>
                         <th>Created At</th>
                         <th>Updated At</th>
-                        <th>Actions</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -153,7 +154,7 @@ background-color: #167CA5;
                             <td>{{ $order->created_at }}</td>
                             <td>{{ $order->updated_at }}</td>
                             <td>
-                                <form action="{{ route('sales.delete', $order->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este registro?');">
+                                <form action="{{ route('sales.edit', ['id' => $order->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" name="selectedOrders[]" value="{{ $order->id }}">Delete</button>
