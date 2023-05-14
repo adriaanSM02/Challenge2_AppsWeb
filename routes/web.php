@@ -10,6 +10,7 @@ use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Requests;
 
 
 Route::get('/', function () {
@@ -28,5 +29,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('sales', SalesController::class)->middleware('auth');
+Route::get('/purchasing', [PurchasingController::class, 'index'])->name('purchasing.index');
 
 require __DIR__.'/auth.php';

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Clients;
 use App\Models\Orders;
+use app\Models\Requests;
 
 class DashboardController extends Controller
 {
@@ -44,4 +45,5 @@ class DashboardController extends Controller
 
         return view('clientorders', compact('orders', 'page_title'));
     }
+
 }

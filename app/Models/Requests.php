@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Requests extends Model
 {
-    use HasFactory;
+    protected $table = 'request';
 }
