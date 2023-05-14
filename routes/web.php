@@ -40,6 +40,16 @@ Route::get('/sales/create', [SalesController::class, 'mostrar'])
     ->name('sales.index')
     ->middleware('auth');
 
+    
+    
+    Route::get('/sales/delete/', [SalesController::class, 'deletee'])
+    ->name('sales.delete')
+    ->middleware('auth');
+    
+    Route::delete('/sales/delete/', [SalesController::class, 'delete'])
+    ->name('sales.delete')
+    ->middleware('auth');
+
 
 Route::get('/purchasing', [PurchasingController::class, 'todo'])
     ->name('purchasing.index')

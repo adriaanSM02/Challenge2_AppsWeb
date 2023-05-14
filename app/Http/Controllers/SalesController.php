@@ -72,4 +72,21 @@ class SalesController extends Controller
         return view('sales.index', compact('page_title', 'orders'));
     }
 
+    public function deletee()
+    {
+        $page_title = 'Delete Order';
+        $orders = Orders::all();
+    
+        return view('sales.delete', compact('page_title', 'orders'));
+    }
+
+    public function delete(Request $request)
+    {
+        $selectedOrders = $request->input('selectedOrders', []);
+    
+        // Eliminar las columnas seleccionadas
+        Orders::whereIn('id', $selectedOrders)->delete();
+    
+        return redirect()->route('sales.index')->with('success', 'Selected orders have been deleted.');
+    }
 }
