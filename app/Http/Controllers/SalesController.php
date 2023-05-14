@@ -10,7 +10,8 @@ use App\Models\Products;
 
 class SalesController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         $page_title = "Create Order";
         $clients = Clients::all();
         $products = Products::all();
@@ -18,43 +19,48 @@ class SalesController extends Controller
         return view('sales.create', compact('page_title', 'clients', 'products'));
     }
 
-
-    public function store(Request $request){
-        $order = Orders::create([
-            'status' => 0,
-            'client_id' => $request->client_id,
-            'tax' => 0,
-            'total' => 0,
-            'subtotal' => 0,
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'client_id' => 'required',
+            'status' => 'required',
+            'subtotal' => 'required',
+            'tax' => 'required',
+            'total' => 'required',
+            'notes' => 'nullable',
+            'dateNtime' => 'required',
+            'photo1' => 'nullable',
+            'active' => 'required',
+            'created_at' => 'required',
+            'updated_at' => 'required',
         ]);
 
-        $quantities = $request->quantities;
-        $products = $request->products;
-        $order_subtotal = 0;
+        // Crear una nueva instancia del modelo Orders
+        $order = new Orders;
 
-        for($x=0; $x < count($products); $x++){
-            $product = Products::where('id', $products[$x])->first();
-            $subtotal = $product->price * $quantities[$x];
+        // Asignar los valores de los campos
+        $order->client_id = $request->input('client_id');
+        $order->status = $request->input('status');
+        $order->subtotal = $request->input('subtotal');
+        $order->tax = $request->input('tax');
+        $order->total = $request->input('total');
+        $order->notes = $request->input('notes');
+        $order->dateNtime = $request->input('dateNtime');
+        $order->photo1 = $request->input('photo1');
+        $order->active = $request->input('active');
+        $order->created_at = $request->input('created_at');
+        $order->updated_at = $request->input('updated_at');
 
-            OrderDetails::create([
-                'order_id' => $order->id,
-                'product_id' => $product->id,
-                'quantity' => $quantities[$x],
-                'subtotal' => $subtotal
-            ]);
-
-            $order_subtotal = $order_subtotal + $subtotal;
+        try {
+            // Guardar el modelo en la base de datos
+            $order->save();
+        
+            // Redireccionar a una ruta o vista específica
+            return redirect()->route('sales.create')->with('success', 'Order created successfully');
+        } catch (\Exception $e) {
+            // Capturar la excepción y mostrar un mensaje de error
+            return redirect()->back()->with('error', 'Error creating order: ' . $e->getMessage());
         }
-
-        $order_tax = $order_subtotal * .16;
-        $order_total = $order_subtotal + $order_tax;
-
-        $order->update([
-            'subtotal'  => $order_subtotal,
-            'tax' => $order_tax,
-            'total' => $order_total
-        ]);
-
-        return redirect()->route('dashboard')->with('page_title', 'Orders');
+        
     }
 }

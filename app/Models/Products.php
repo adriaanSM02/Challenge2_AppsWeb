@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    use HasFactory;
+    protected $guarded = [];
+    public function orders()
+    {
+        return $this->belongsToMany(Orders::class, 'order_details')
+            ->withPivot('quantity', 'price');
+    }
 }
