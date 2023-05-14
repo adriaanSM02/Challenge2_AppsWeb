@@ -63,4 +63,13 @@ class SalesController extends Controller
         }
         
     }
+
+    public function mostrar()
+    {
+        $page_title = 'You are in the Sales department';
+        $orders = Orders::all();
+    
+        return view('sales.index', compact('page_title', 'orders'));
+    }
+
 }

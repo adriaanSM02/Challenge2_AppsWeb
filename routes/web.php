@@ -36,6 +36,11 @@ Route::post('/sales', [SalesController::class, 'store'])
     ->name('sales.store')
     ->middleware('auth');
 
+Route::get('/sales/create', [SalesController::class, 'mostrar'])
+    ->name('sales.index')
+    ->middleware('auth');
+
+
 Route::get('/purchasing', [PurchasingController::class, 'todo'])
     ->name('purchasing.index')
     ->middleware('auth');

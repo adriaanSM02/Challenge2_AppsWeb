@@ -45,6 +45,8 @@
         background-color: #45a049;
     }
 </style>
+<a href="{{ route('sales.index') }}">Show All Orders</a>
+
 <form action="{{ route('sales.store') }}" method="POST" class="formulario">
     @csrf
     <div>
