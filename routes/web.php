@@ -105,8 +105,13 @@ Route::get('/warehouse/show', [WarehouseController::class, 'show'])
     ->name('warehouse.show')
     ->middleware('auth');
 
-Route::get('/warehouse/edit', [WarehouseController::class, 'edit'])
+
+    Route::get('/warehouse/edit', [WarehouseController::class, 'edit'])
     ->name('warehouse.edit')
+    ->middleware('auth');
+
+Route::put('update-Status', [WarehouseController::class, 'updateStatus'])
+    ->name('update-Status')
     ->middleware('auth');
 
 

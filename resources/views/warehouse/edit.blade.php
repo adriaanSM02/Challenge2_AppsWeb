@@ -85,7 +85,7 @@
         <nav>
             <img src="{{asset('img/halconLogo.png')}}">
   
-            <ul>
+            <ul
                 <li><a href="{{ route('warehouse.index') }}">Show Orders</a></li>
             </ul>
   
@@ -118,24 +118,24 @@
                         <th>Notes</th>
                         <th>Date And Time</th>
                         <th>Photo</th>
+
                     </thead>
                     <tbody>
                         @forelse($orders as $index => $order)
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->client_id }}</td>
-                            <td>
-                                <form action="{{ route('actualizar-estado', ['id' => $order->id]) }}" method="POST">
-                                @csrf  @method('PUT') <input type="text" name="status" value="{{ $order->status }}">
-                                
-                            </td>
-                            <td><button type="submit">Update</button></form></td>
+                         
+                            <td><form action="{{ route('update-Status', ['id' => $order->id]) }}" method="POST"> @csrf  @method('PUT') <input type="text" name="status" value="{{ $order->status }}"></td>
+
                             <td>{{ $order->subtotal }}</td>
                             <td>{{ $order->tax }}</td>
                             <td>{{ $order->total }}</td>
                             <td>{{ $order->notes }}</td>
                             <td>{{ $order->dateNtime }}</td>
                             <td><img width="100" src="{{ $order->photo1 }}"></td>
+                            <td><button type="submit">Update</button></form></td>
+
                         </tr>
                         @empty
                         <p>no</p>

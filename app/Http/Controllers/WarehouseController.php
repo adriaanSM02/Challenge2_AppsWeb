@@ -98,7 +98,7 @@ class WarehouseController extends Controller
     public function edit(Orders $orders)
     {
         $page_title = 'Edit Status';
-        $orders = Requests::all();
+        $orders = $orders   ::all();
     
         return view('warehouse.edit', compact('page_title', 'orders'));
     }
@@ -106,10 +106,21 @@ class WarehouseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Orders $orders)
+    public function updateStatus(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $order = Orders::find($id);
+        
+        $order->status = $request->input('status');
+       
+
+        $order->save();
+    
+    
+    
+        return redirect()->back()->with('success', 'Pedido actualizado exitosamente');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -118,4 +129,5 @@ class WarehouseController extends Controller
     {
         //
     }
+
 }
