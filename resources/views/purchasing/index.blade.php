@@ -1,6 +1,8 @@
-@include('layouts.navbar')
+@include('shared.head')
 
 <body>
+
+    @include('shared.navgeneral')
     <div style="text-align: center;">
         <h1>{{$page_title}}</h1>
     </div>
@@ -27,10 +29,6 @@
     </table>
 
    
-    <script>
-        $(document).ready(function() {
-            $('#miTabla').DataTable();
-        });
-    </script>
+    @include('shared.footer')
 </body>
 </html>

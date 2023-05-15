@@ -13,22 +13,23 @@ class DashboardController extends Controller
     public function index(){
         switch (Auth::user()->role){
             case 0:
-                $page_title = 'You are an admin';
+                $page_title = 'Admin Department';
                 return view('dashboard', compact('page_title'));
                 break;
             case 1:
                 return redirect()->route('sales.index');
                 break;
             case 2:
-                $page_title = 'You are in the warehouse department';
-                return view('warehouse.index', compact('page_title'));
+                $page_title = 'Warehouse Department';
+                $orders = Orders::all();
+                return view('warehouse.index', compact('page_title', 'orders'));
                 break;
-                case 3:
-                    return redirect()->route('purchasing.index');
-                    break;
+            case 3:
+                return redirect()->route('purchasing.index');
+                break;
             case 4:
                 return redirect()->route('route.index');
-                    break;
+                break;
                 
         }
     }
@@ -41,7 +42,7 @@ class DashboardController extends Controller
 
         // dd($orders);
 
-        return view('clientorders', compact('orders', 'page_title'));
+        return view('clientsresult', compact('orders', 'page_title'));
     }
 
 }

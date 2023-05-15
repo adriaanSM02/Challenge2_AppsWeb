@@ -83,7 +83,7 @@ background-color: #167CA5;
     <ul>
         <a href="{{ route('sales.index') }}">Show All Orders</a>
         <a href="{{ route('sales.delete') }}">Delete Orders</a>
-        <li><a href="{{ route('sales.edit') }}">Edit Order</a></li>
+        <a href="{{ route('sales.edit') }}">Edit Order</a>
 
     </ul>
 
@@ -197,21 +197,6 @@ background-color: #167CA5;
     <div>
         <label for="photo1">Photo 1:</label>
         <input type="text" name="photo1" id="photo1">
-    </div>
-    
-    <div>
-        <label for="active">Active:</label>
-        <input type="number" name="active" id="active" required>
-    </div>
-    
-    <div>
-        <label for="created_at">Created At:</label>
-        <input type="datetime-local" name="created_at" id="created_at" required>
-    </div>
-    
-    <div>
-        <label for="updated_at">Updated At:</label>
-        <input type="datetime-local" name="updated_at" id="updated_at" required>
     </div>
     
     <button type="submit" class="formulario-boton">Crear Orden</button>

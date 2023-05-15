@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-Route::post('/clientorders', [DashboardController::class, 'list'])->name('clientorders');
+Route::post('/clientsresult', [DashboardController::class, 'list'])->name('clientsresult');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -73,5 +73,7 @@ Route::get('/purchasing', [PurchasingController::class, 'todo'])
     Route::get('/route/all', [RouteController::class, 'all'])
     ->name('route.index')
     ->middleware('auth');
+
+    Route::resource('warehouse', WarehouseController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';

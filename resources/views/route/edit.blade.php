@@ -1,4 +1,5 @@
-@include('layouts.navbar')
+@include('shared.head')
+@include('shared.navgeneral')
 <a href="{{ route('route.index') }}">Show All</a>
 
 <body>

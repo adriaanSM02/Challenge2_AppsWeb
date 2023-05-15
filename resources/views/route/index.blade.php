@@ -1,4 +1,5 @@
-@include('layouts.navbar')
+@include('shared.head')
+@include('shared.navgeneral')
 <a href="{{ route('route.edit') }}">Edit Status</a>
 
 <body>
@@ -20,9 +21,6 @@
                 <th>Notes</th>
                 <th>Date and Time</th>
                 <th>Photo 1</th>
-                <th>Active</th>
-                <th>Created At</th>
-                <th>Updated At</th>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +28,28 @@
                 <tr>
                     <td>{{ $order->id }}</td>
                     <td>{{ $order->client_id }}</td>
-                    <td> {{ $order->status }}</td>
+                    <td>
+                    @switch($order->status)
+                                    @case(0)
+                                        Processing
+                                        @break
+                                    @case(1)
+                                        Ready to be delivered
+                                        @break
+                                    @case(2)
+                                        In route
+                                        @break
+                                    @case(3)
+                                        Delivered
+                                        @break
+                                    @case(4)
+                                        Cancelled
+                                        @break
+                                    @default
+                                        Processing
+                                        @break
+                                @endswitch
+                    </td>
                     <td>{{ $order->subtotal }}</td>
                     <td>{{ $order->tax }}</td>
                     <td>{{ $order->total }}</td>
