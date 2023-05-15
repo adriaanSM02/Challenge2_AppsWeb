@@ -14,6 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <a class="btn btn-primary" href="{{ route('warehouse.create') }}">Create Request</a>
+
             </div>
         </div>
     </div>

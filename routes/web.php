@@ -89,7 +89,13 @@ Route::put('actualizar-estado', [PurchasingController::class,'actualizarEstado']
     ->name('warehouse.index')
     ->middleware('auth');
 
-    Route::get('/warehouse/create', [WarehouseController::class, 'create'])
+    
+
+    Route::get('/warehouse/create', [WarehouseController::class, 'CreateAll'])
+    ->name('warehouse.create')
+    ->middleware('auth');
+
+    Route::post('/warehouse/create', [WarehouseController::class, 'create'])
     ->name('warehouse.create')
     ->middleware('auth');
 
