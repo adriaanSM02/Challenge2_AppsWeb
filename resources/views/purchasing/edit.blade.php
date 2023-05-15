@@ -78,7 +78,7 @@ background-color: #167CA5;
 @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
     @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
     <ul>
-        <li><a href="{{ route('purchasing.index') }}">Show Reuqests</a></li>
+        <li><a href="{{ route('purchasing.index') }}">Show Requests</a></li>
 
   </ul>
 

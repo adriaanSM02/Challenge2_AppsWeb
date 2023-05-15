@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+    // Sales Routes -----
+
 Route::get('/sales', [SalesController::class, 'create'])
     ->name('sales.create')
     ->middleware('auth');
@@ -41,68 +43,71 @@ Route::get('/sales/create', [SalesController::class, 'mostrar'])
     ->middleware('auth');
 
 
-    Route::get('/sales/delete/', [SalesController::class, 'deletee'])
+Route::get('/sales/delete/', [SalesController::class, 'deletee'])
     ->name('sales.delete')
     ->middleware('auth');
     
-    Route::delete('/sales/delete', [SalesController::class, 'delete'])
+Route::delete('/sales/delete', [SalesController::class, 'delete'])
     ->name('sales.delete')
     ->middleware('auth');
 
 
-    Route::get('/sales/edit', [SalesController::class, 'editt'])
+Route::get('/sales/edit', [SalesController::class, 'editt'])
     ->name('sales.edit')
     ->middleware('auth');
 
 
-    Route::put('update-status', [SalesController::class, 'updateStatus'])
+Route::put('update-status', [SalesController::class, 'updateStatus'])
     ->name('update-status');
 
-    
+    // Purchasing Routes -----
+
 Route::get('/purchasing', [PurchasingController::class, 'todo'])
     ->name('purchasing.index')
     ->middleware('auth');
 
-    Route::get('/purchasing/edit', [PurchasingController::class, 'editt'])
+Route::get('/purchasing/edit', [PurchasingController::class, 'editt'])
     ->name('purchasing.edit')
     ->middleware('auth');
 
 Route::put('actualizar-estado', [PurchasingController::class,'actualizarEstado'])    
-->name('actualizar-estado');
+    ->name('actualizar-estado');
 
+    // Route Routes -----
 
-
-    Route::get('/route', [RouteController::class, 'mostrar'])
+Route::get('/route', [RouteController::class, 'mostrar'])
     ->name('route.edit')
     ->middleware('auth');
    
-    Route::post('update-status', [RouteController::class, 'updateStatus'])
+Route::post('update-status', [RouteController::class, 'updateStatus'])
     ->name('update-status');
 
     
-    Route::get('/route/all', [RouteController::class, 'all'])
+Route::get('/route/all', [RouteController::class, 'all'])
     ->name('route.index')
     ->middleware('auth');
 
+    // Warehouse Routes -----
 
-    Route::get('/warehouse', [WarehouseController::class, 'index'])
+Route::get('/warehouse', [WarehouseController::class, 'index'])
     ->name('warehouse.index')
     ->middleware('auth');
 
-    
-
-    Route::get('/warehouse/create', [WarehouseController::class, 'CreateAll'])
+Route::get('/warehouse/create', [WarehouseController::class, 'CreateAll'])
     ->name('warehouse.create')
     ->middleware('auth');
 
-    Route::post('/warehouse/create', [WarehouseController::class, 'create'])
+Route::post('/warehouse/create', [WarehouseController::class, 'create'])
     ->name('warehouse.create')
     ->middleware('auth');
 
-    Route::get('/warehouse/show', [WarehouseController::class, 'show'])
+Route::get('/warehouse/show', [WarehouseController::class, 'show'])
     ->name('warehouse.show')
     ->middleware('auth');
 
+Route::get('/warehouse/edit', [WarehouseController::class, 'edit'])
+    ->name('warehouse.edit')
+    ->middleware('auth');
 
 
 require __DIR__.'/auth.php';

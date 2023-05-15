@@ -48,9 +48,9 @@ class WarehouseController extends Controller
             $order = new Requests;
     
             // Asignar los valores de los campos
-            $order->product_id = $request->input('product_id');
-            $order->quantity = $request->input('quantity');
-            $order->status = $request->input('status');
+            $order->product_id = $order->input('product_id');
+            $order->quantity = $order->input('quantity');
+            $order->status = $order->input('status');
             $order->created_at = null;
             $order->updated_at = now();
     
@@ -62,6 +62,19 @@ class WarehouseController extends Controller
             // Capturar la excepción y mostrar un mensaje de error
             return redirect()->back()->with('error', 'Error al crear el pedido: ' . $e->getMessage());
         }
+    }
+
+    public function actualizarEstado(Orders $order)
+    {
+        $id = $order->input('id');
+
+        $order = Orders::find($id);
+
+        $order->status = $order->input('status');
+
+        $order->save();
+
+        return redirect()->back()->with('success', 'Pedido actualizado exitosamente');
     }
     /**
      * Store a newly created resource in storage.
@@ -84,7 +97,10 @@ class WarehouseController extends Controller
      */
     public function edit(Orders $orders)
     {
-        //
+        $page_title = 'Edit Status';
+        $orders = Requests::all();
+    
+        return view('warehouse.edit', compact('page_title', 'orders'));
     }
 
     /**

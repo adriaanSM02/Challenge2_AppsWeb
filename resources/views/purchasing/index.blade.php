@@ -147,7 +147,28 @@ background-color: #167CA5;
                 <td>{{ $request->id }}</td>
                 <td>{{ $request->product_id }}</td>
                 <td>{{ $request->quantity }}</td>
-                <td>{{ $request->status }}</td>
+                <td>
+                @switch($request->status)
+                                    @case(0)
+                                        No Stock
+                                        @break
+                                    @case(1)
+                                        Almost No Stock
+                                        @break
+                                    @case(2)
+                                        In Process
+                                        @break
+                                    @case(3)
+                                        In Track
+                                        @break
+                                    @case(4)
+                                        Purchased
+                                        @break
+                                    @default
+                                        Processing
+                                        @break
+                            @endswitch
+                </td>
             </tr>
             @endforeach
         </tbody>

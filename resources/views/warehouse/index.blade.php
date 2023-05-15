@@ -12,13 +12,18 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-6">
                 <a class="btn btn-primary" href="{{ route('warehouse.create') }}">Create Request</a>
+            </div>
+            <div class="col-6 text-end">
+                <a class="btn btn-warning" href="{{ route('warehouse.edit') }}">Edit Request</a>
 
             </div>
         </div>
     </div>
     <br>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -38,7 +43,7 @@
                     <tbody>
                         @forelse($orders as $order)
                         <tr>
-                            <td><a href="{{ route('warehouse.show', $order->id) }}">{{$order->id}}</a></td>
+                            <td>{{ $order->id }}</a></td>
                             <td>{{ $order->client_id }}</td>
                             <td>
                             @switch($order->status)
