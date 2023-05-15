@@ -13,8 +13,7 @@ class DashboardController extends Controller
     public function index(){
         switch (Auth::user()->role){
             case 0:
-                $page_title = 'Admin Department';
-                return view('dashboard', compact('page_title'));
+                return redirect()->route('sales.index');
                 break;
             case 1:
                 return redirect()->route('sales.index');
@@ -30,6 +29,9 @@ class DashboardController extends Controller
             case 4:
                 return redirect()->route('route.index');
                 break;
+
+                default:
+                abort(403, 'Unauthorized action.');
                 
         }
     }

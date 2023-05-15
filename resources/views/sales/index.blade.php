@@ -61,7 +61,20 @@ background-color: #167CA5;
 </head>
 
 <body>
-  @include('shared.navbarsales')
+  @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
+    @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+    <ul>
+      <li><a href="{{ route('sales.create') }}">Create a Order</a></li>
+      <li><a href="{{ route('sales.delete') }}">Delete Order</a></li>
+      <li><a href="{{ route('sales.edit') }}">Edit Order</a></li>
+
+  </ul>
+
+  <div>
+  @else
+    @include('shared.navbarsales') <!-- Incluye el navbar para otros roles -->
+
+  @endif
     <div style="text-align: center;">
 
     <h1>{{ $page_title }}</h1>

@@ -75,6 +75,17 @@ background-color: #167CA5;
   </style>
 </head>
 <body>
+  @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
+  @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+  <ul>
+    <li><a href="{{ route('sales.create') }}">Create a Order</a></li>
+    <li><a href="{{ route('sales.index') }}">Show All</a></li>
+    <li><a href="{{ route('sales.edit') }}">Edit Order</a></li>
+
+</ul>
+
+<div>
+@else
   <nav>
  
   
@@ -111,7 +122,7 @@ background-color: #167CA5;
   
 
   </nav>
-
+@endif
 <body>
    
         <div class="container">
@@ -154,7 +165,7 @@ background-color: #167CA5;
                             <td>{{ $order->created_at }}</td>
                             <td>{{ $order->updated_at }}</td>
                             <td>
-                                <form action="{{ route('sales.edit', ['id' => $order->id]) }}" method="POST">
+                                <form action="{{ route('sales.delete', ['id' => $order->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" name="selectedOrders[]" value="{{ $order->id }}">Delete</button>

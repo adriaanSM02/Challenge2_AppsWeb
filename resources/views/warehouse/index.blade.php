@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <table class="table text-center">
+                <table class="table text-center"  id="datatable">
                     <thead style="font-weight: bold;">
                         <th>ID</th>
                         <th>Client ID</th>
@@ -70,7 +70,11 @@
             </div>
         </div>
     </div>
-    
+    <script>
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        });
+    </script>
     @include('shared.footer')
 </body>
 </html>

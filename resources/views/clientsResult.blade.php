@@ -1,4 +1,6 @@
 @include('shared.head')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
 @include('shared.navwelcome')
 <body>
 <div class="container py-4">
@@ -6,7 +8,7 @@
         <div class="col">
             <h1 class="text-center mb-3">{{ $page_title }}</h1>
 
-            <table class="table text-end" id="datatable">
+            <table class="table table-striped text-end" id="datatable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -62,3 +64,8 @@
     </div>
 </div>
 </body>
+<script>
+    $(document).ready(function() {
+        $('#datatable').DataTable();
+    });
+</script>

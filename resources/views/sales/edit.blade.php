@@ -75,6 +75,19 @@ background-color: #167CA5;
   </style>
 </head>
 <body>
+ 
+  @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
+    @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+    <ul>
+      <li><a href="{{ route('sales.create') }}">Create a Order</a></li>
+      <li><a href="{{ route('sales.index') }}">Show All</a></li>
+      <li><a href="{{ route('sales.delete') }}">Delete Order</a></li>
+  </ul>
+
+  <div>
+  @else
+   
+
   <nav>
  
   
@@ -93,7 +106,7 @@ background-color: #167CA5;
           <button type="submit" class="logout-button">Cerrar sesión</button>
       </form>
   </div>
-  
+  @endif
   <style>
       .logout-button {
           background-color: #167CA5;
@@ -153,7 +166,7 @@ background-color: #167CA5;
             <td><input type="text" name="total" value="{{ $order->total }}"></td>
             <td><input type="text" name="notes" value="{{ $order->notes }}"></td>
             <td>{{ $order->dateNtime }}</td>
-            <td>{{ $order->photo1 }}</td>
+            <td><img width="100" src="{{ $order->photo1 }}"></td>
             <td><input type="text" name="active" value="{{ $order->active }}"></td>
             <td>{{ $order->created_at }}</td>
             <td>{{ $order->updated_at }}</td>

@@ -58,9 +58,19 @@ Route::get('/sales/create', [SalesController::class, 'mostrar'])
     Route::put('update-status', [SalesController::class, 'updateStatus'])
     ->name('update-status');
 
+    
 Route::get('/purchasing', [PurchasingController::class, 'todo'])
     ->name('purchasing.index')
     ->middleware('auth');
+
+    Route::get('/purchasing/edit', [PurchasingController::class, 'editt'])
+    ->name('purchasing.edit')
+    ->middleware('auth');
+
+Route::put('actualizar-estado', [PurchasingController::class,'actualizarEstado'])    
+->name('actualizar-estado');
+
+
 
     Route::get('/route', [RouteController::class, 'mostrar'])
     ->name('route.edit')

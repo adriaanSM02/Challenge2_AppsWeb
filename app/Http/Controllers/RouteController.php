@@ -19,9 +19,6 @@ class RouteController extends Controller
     {
         $orderId = $request->input('orderId');
         $status = $request->input('status');
-        
-        $orderId2 = $request->input('orderId2');
-         $status2 = $request->input('status2');
 
         $order = Orders::find($orderId);
         $order->status = $status;

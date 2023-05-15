@@ -13,4 +13,26 @@ class PurchasingController extends Controller
 
         return view('purchasing.index',compact('page_title','requests'));
     }
+
+
+    public function editt()
+    {
+        $page_title = 'Edit Status';
+        $requests = Requests::all();
+    
+        return view('purchasing.edit', compact('page_title', 'requests'));
+    }
+
+    public function actualizarEstado(Request $request)
+    {
+        $id = $request->input('id');
+        $order = Requests::find($id);
+
+        $order->status = $request->input('status');
+
+        $order->save();
+
+        return redirect()->back()->with('success', 'Pedido actualizado exitosamente');
+    }
+
 }

@@ -81,11 +81,10 @@ background-color: #167CA5;
   <img src="{{asset('img/halconLogo.png')}}">
 
     <ul>
-      <li><a href="#">Sales</a></li>
-      <li><a href="#">Purchasing</a></li>
-      <li><a href="#">Warehouse</a></li>
-      <li><a href="#">Route</a></li>
-      <li><a href="#">Check Package</a></li>
+      <li><a href="{{ route('sales.index') }}">Sales</a></li>
+      <li><a href="{{ route('purchasing.index') }}">Purchasing</a></li>
+      <li><a href="{{ route('warehouse.index') }}">Warehouse</a></li>
+      <li><a href="{{ route('route.index') }}">Route</a></li>
     </ul>
 
     <div>

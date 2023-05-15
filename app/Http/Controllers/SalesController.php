@@ -21,6 +21,7 @@ class SalesController extends Controller
 
     public function store(Request $request)
     {
+        
         $validatedData = $request->validate([
             'client_id' => 'required',
             'status' => 'required',
@@ -30,9 +31,7 @@ class SalesController extends Controller
             'notes' => 'nullable',
             'dateNtime' => 'required',
             'photo1' => 'nullable',
-            'active' => 'required',
-            'created_at' => 'required',
-            'updated_at' => 'required',
+          
         ]);
 
         // Crear una nueva instancia del modelo Orders
@@ -48,8 +47,9 @@ class SalesController extends Controller
         $order->dateNtime = $request->input('dateNtime');
         $order->photo1 = $request->input('photo1');
         $order->active = $request->input('active');
-        $order->created_at = $request->input('created_at');
-        $order->updated_at = $request->input('updated_at');
+        $order->created_at = now(); // Establecer la fecha y hora actual
+        $order->updated_at = now(); // Establecer la fecha y hora actual
+
 
         try {
             // Guardar el modelo en la base de datos

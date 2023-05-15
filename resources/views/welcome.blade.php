@@ -21,11 +21,12 @@
   @include('shared.navwelcome')
     
 <div id="main-container">
-
+    <br/>
     <h1>HALCON</h1>
-    
-    <h1>Material Distributor</h1>
-    
+    <br/>
+    <h2>Material Distributor</h2>
+    <br/><br/>
+
     
     <img src="img/materialSimbol.png">
     <p>Check the status of your products</p>
@@ -38,8 +39,9 @@
     padding: 10px;
     width: 100%;
     margin-right: 10px;
-  }
-  
+    }
+    
+
   </style>
 
 </div>
@@ -56,8 +58,12 @@
                             <input type="text" name="uuid" id="uuid" class="form-control">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">View Orders</button>
-                    </form>
+                        <div class="reset-button" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary" style="background-color: #167CA5;">View Orders</button>
+                        </div>
+
+                        
+                     </form>
                 </div>
             </div>
         </div>

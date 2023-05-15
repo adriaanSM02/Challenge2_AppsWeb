@@ -75,6 +75,18 @@ background-color: #167CA5;
   </style>
 </head>
 <body>
+  @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
+  @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+  <ul>
+    <li><a href="{{ route('sales.index') }}">Show All Orders</a></li>
+    <li> <a href="{{ route('sales.delete') }}">Delete Orders</a></li>
+      <li> <a href="{{ route('sales.edit') }}">Edit Order</a></li>
+
+</ul>
+
+<div>
+@else
+ 
   <nav>
  
   
@@ -111,6 +123,8 @@ background-color: #167CA5;
   
 
   </nav>
+  @endif
+
 <style>
     .formulario {
         display: flex;
@@ -155,51 +169,60 @@ background-color: #167CA5;
     .formulario button[type="submit"]:hover {
         background-color: #051644;
     }
+    h1 {
+      text-align: center;
+    }
 </style>
-
+<h1>Create Order</h1>
+<br/>
 <form action="{{ route('sales.store') }}" method="POST" class="formulario">
-    @csrf
-    <div>
-        <label for="client_id">Client ID:</label>
-        <input type="number" name="client_id" id="client_id" required>
-    </div>
-    
-    <div>
-        <label for="status">Status:</label>
-        <input type="number" name="status" id="status" required>
-    </div>
-    
-    <div>
-        <label for="subtotal">Subtotal:</label>
-        <input type="number" step="0.01" name="subtotal" id="subtotal" required>
-    </div>
-    
-    <div>
-        <label for="tax">Tax:</label>
-        <input type="number" step="0.01" name="tax" id="tax" required>
-    </div>
-    
-    <div>
-        <label for="total">Total:</label>
-        <input type="number" step="0.01" name="total" id="total" required>
-    </div>
-    
-    <div>
-        <label for="notes">Notes:</label>
-        <textarea name="notes" id="notes"></textarea>
-    </div>
-    
-    <div>
-        <label for="dateNtime">Date and Time:</label>
-        <input type="datetime-local" name="dateNtime" id="dateNtime" required>
-    </div>
-    
-    <div>
-        <label for="photo1">Photo 1:</label>
-        <input type="text" name="photo1" id="photo1">
-    </div>
-    
-    <button type="submit" class="formulario-boton">Crear Orden</button>
+  @csrf
+
+  <div>
+      <label for="client_id">Client ID:</label>
+      <input type="number" name="client_id" id="client_id" required>
+  </div>
+
+  <div>
+      <label for="status">Status:</label>
+      <input type="number" name="status" id="status" required>
+  </div>
+
+  <div>
+      <label for="subtotal">Subtotal:</label>
+      <input type="number" step="0.01" name="subtotal" id="subtotal" required>
+  </div>
+
+  <div>
+      <label for="tax">Tax:</label>
+      <input type="number" step="0.01" name="tax" id="tax" required>
+  </div>
+
+  <div>
+      <label for="total">Total:</label>
+      <input type="number" step="0.01" name="total" id="total" required>
+  </div>
+
+  <div>
+      <label for="notes">Notes:</label>
+      <textarea name="notes" id="notes"></textarea>
+  </div>
+
+  <div>
+      <label for="dateNtime">Date and Time:</label>
+      <input type="datetime-local" name="dateNtime" id="dateNtime" required>
+  </div>
+
+  <div>
+      <label for="photo1">Photo 1:</label>
+      <input type="text" name="photo1" id="photo1">
+  </div>
+
+  <input type="hidden" name="active" value="1"> <!-- Campo hidden para el valor predeterminado del campo "active" -->
+  <input type="hidden" name="created_at" value="{{ now() }}"> <!-- Campo hidden para establecer la fecha y hora actual de creación -->
+  <input type="hidden" name="updated_at" value="{{ now() }}"> <!-- Campo hidden para establecer la fecha y hora actual de actualización -->
+
+  <button type="submit" class="formulario-boton">Crear Orden</button>
 </form>
 
 
