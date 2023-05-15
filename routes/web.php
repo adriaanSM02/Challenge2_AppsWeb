@@ -84,6 +84,19 @@ Route::put('actualizar-estado', [PurchasingController::class,'actualizarEstado']
     ->name('route.index')
     ->middleware('auth');
 
-    Route::resource('warehouse', WarehouseController::class)->middleware('auth');
+
+    Route::get('/warehouse', [WarehouseController::class, 'index'])
+    ->name('warehouse.index')
+    ->middleware('auth');
+
+    Route::get('/warehouse/create', [WarehouseController::class, 'create'])
+    ->name('warehouse.create')
+    ->middleware('auth');
+
+    Route::get('/warehouse/show', [WarehouseController::class, 'show'])
+    ->name('warehouse.show')
+    ->middleware('auth');
+
+
 
 require __DIR__.'/auth.php';

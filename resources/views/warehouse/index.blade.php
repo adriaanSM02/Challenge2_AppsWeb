@@ -1,6 +1,12 @@
 @include('shared.head')
 <body>
+    @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
+    @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+  <div>
+  @else
     @include('shared.navgeneral')
+    @endif
+
     <h1 class="text-center p-3">{{ $page_title }}</h1>
     <br>
 

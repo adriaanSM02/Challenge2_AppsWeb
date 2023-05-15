@@ -76,11 +76,33 @@ background-color: #167CA5;
 </head>
 
 @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
-    @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
-    <ul>
-  <li><a href="{{ route('route.index') }}">Show All</a></li>
+@include('layouts.navbar') <!-- Incluye el navbar para el administrador -->   
+<style>
+  h1 {
+   text-align: center;
+}
+ .btn-create {
+     background-color: green; /* Cambia este valor al color deseado para el botón "Create a Order" */
+     color: white;
+ }
 
-  </ul>
+ .btn-delete {
+     background-color: red; /* Cambia este valor al color deseado para el botón "Delete Order" */
+     color: white;
+ }
+
+ .btn-edit {
+     background-color: blue; /* Cambia este valor al color deseado para el botón "Edit Order" */
+     color: white;
+ }
+ 
+</style> 
+    <h1>{{ $page_title }}</h1>
+
+<ul>
+  <a href="{{ route('route.index') }}"><button class="btn-create">Show All</button></a>
+
+</ul>
 
   <div>
   @else
@@ -121,11 +143,12 @@ background-color: #167CA5;
     
   
     </nav>
+    <h1>{{ $page_title }}</h1>
+
 @endif
 
 <body>
     <div style="text-align: center;">
-        <h1>{{ $page_title }}</h1>
     </div>
 
     <br/>

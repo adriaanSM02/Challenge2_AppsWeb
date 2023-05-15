@@ -15,9 +15,10 @@ class WarehouseController extends Controller
      */
     public function index()
     {
+        $page_title = 'Warehouse Department';
         $orders = Orders::all();
 
-        return view('warehouse.index', compact('orders'));
+        return view('warehouse.index', compact('orders','page_title'));
     }
 
     /**
@@ -25,7 +26,10 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        //
+        $page_title = ' Create Request';
+        $orders = Orders::all();
+
+        return view('warehouse.create', compact('orders','page_title'));
     }
 
     /**

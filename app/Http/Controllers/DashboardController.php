@@ -19,9 +19,7 @@ class DashboardController extends Controller
                 return redirect()->route('sales.index');
                 break;
             case 2:
-                $page_title = 'Warehouse Department';
-                $orders = Orders::all();
-                return view('warehouse.index', compact('page_title', 'orders'));
+                return redirect()->route('warehouse.index');
                 break;
             case 3:
                 return redirect()->route('purchasing.index');

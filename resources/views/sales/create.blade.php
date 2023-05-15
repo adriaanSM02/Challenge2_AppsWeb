@@ -77,18 +77,38 @@ background-color: #167CA5;
 <body>
   @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
   @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+  <style>
+    h1 {
+     text-align: center;
+ }
+   .btn-create {
+       background-color: green; /* Cambia este valor al color deseado para el botón "Create a Order" */
+       color: white;
+   }
+
+   .btn-delete {
+       background-color: red; /* Cambia este valor al color deseado para el botón "Delete Order" */
+       color: white;
+   }
+
+   .btn-edit {
+       background-color: blue; /* Cambia este valor al color deseado para el botón "Edit Order" */
+       color: white;
+   }
+</style>
+  <h1>{{ $page_title }}</h1>
+
   <ul>
-    <li><a href="{{ route('sales.index') }}">Show All Orders</a></li>
-    <li> <a href="{{ route('sales.delete') }}">Delete Orders</a></li>
-      <li> <a href="{{ route('sales.edit') }}">Edit Order</a></li>
+
+      <a href="{{ route('sales.index') }}"><button class="btn-create">Show All Orders</button></a>
+      <a href="{{ route('sales.delete') }}"><button class="btn-delete">Delete Order</button></a>
+      <a href="{{ route('sales.edit') }}"><button class="btn-edit">Edit Order</button></a>
 
 </ul>
 
 <div>
 @else
- 
   <nav>
- 
   
   <img src="{{asset('img/halconLogo.png')}}">
 
@@ -123,6 +143,8 @@ background-color: #167CA5;
   
 
   </nav>
+  <h1>Create Order</h1>
+
   @endif
 
 <style>
@@ -173,7 +195,6 @@ background-color: #167CA5;
       text-align: center;
     }
 </style>
-<h1>Create Order</h1>
 <br/>
 <form action="{{ route('sales.store') }}" method="POST" class="formulario">
   @csrf

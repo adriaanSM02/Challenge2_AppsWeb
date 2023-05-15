@@ -63,21 +63,43 @@ background-color: #167CA5;
 <body>
   @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
     @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
-    <ul>
-      <li><a href="{{ route('sales.create') }}">Create a Order</a></li>
-      <li><a href="{{ route('sales.delete') }}">Delete Order</a></li>
-      <li><a href="{{ route('sales.edit') }}">Edit Order</a></li>
+    <style>
+      h1 {
+       text-align: center;
+   }
+     .btn-create {
+         background-color: green; /* Cambia este valor al color deseado para el botón "Create a Order" */
+         color: white;
+     }
+ 
+     .btn-delete {
+         background-color: red; /* Cambia este valor al color deseado para el botón "Delete Order" */
+         color: white;
+     }
+ 
+     .btn-edit {
+         background-color: blue; /* Cambia este valor al color deseado para el botón "Edit Order" */
+         color: white;
+     }
+     
+ </style>
+    <h1>{{ $page_title }}</h1>
 
-  </ul>
+   
+      <a href="{{ route('sales.create') }}"><button class="btn-create">Create a Order</button></a>
+      <a href="{{ route('sales.delete') }}"><button class="btn-delete">Delete Order</button></a>
+      <a href="{{ route('sales.edit') }}"><button class="btn-edit">Edit Order</button></a>
+
 
   <div>
   @else
     @include('shared.navbarsales') <!-- Incluye el navbar para otros roles -->
+    <style> h1{text-align: center;}</style>
+    <h1>{{ $page_title }}</h1>
 
   @endif
     <div style="text-align: center;">
 
-    <h1>{{ $page_title }}</h1>
 </div>
 
 <br/>

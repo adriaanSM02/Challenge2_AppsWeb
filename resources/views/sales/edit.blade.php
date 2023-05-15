@@ -78,19 +78,38 @@ background-color: #167CA5;
  
   @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
     @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+    <style>
+      h1 {
+       text-align: center;
+   }
+     .btn-create {
+         background-color: green; /* Cambia este valor al color deseado para el botón "Create a Order" */
+         color: white;
+     }
+  
+     .btn-delete {
+         background-color: red; /* Cambia este valor al color deseado para el botón "Delete Order" */
+         color: white;
+     }
+  
+     .btn-edit {
+         background-color: blue; /* Cambia este valor al color deseado para el botón "Edit Order" */
+         color: white;
+     }
+  </style>
+  <h1>{{ $page_title }}</h1>
+  
     <ul>
-      <li><a href="{{ route('sales.create') }}">Create a Order</a></li>
-      <li><a href="{{ route('sales.index') }}">Show All</a></li>
-      <li><a href="{{ route('sales.delete') }}">Delete Order</a></li>
+      <a href="{{ route('sales.create') }}"><button class="btn-create">Create a Orde</button></a>
+        <a href="{{ route('sales.index') }}"><button class="btn-delete">Show All</button></a>
+        <a href="{{ route('sales.edit') }}"><button class="btn-edit">Edit Order</button></a>
   </ul>
 
   <div>
   @else
-   
 
   <nav>
  
-  
   <img src="{{asset('img/halconLogo.png')}}">
 
     <ul>
@@ -106,7 +125,10 @@ background-color: #167CA5;
           <button type="submit" class="logout-button">Cerrar sesión</button>
       </form>
   </div>
+</nav>
+<h1>{{ $page_title }}</h1>
   @endif
+
   <style>
       .logout-button {
           background-color: #167CA5;
@@ -122,17 +144,19 @@ background-color: #167CA5;
       }
 
     .table-container {
-        max-height: 600px; /* ajusta este valor según tus necesidades */
+        max-height: 700px; 
         overflow-y: auto;
+    }
+    h1{
+      text-align: center;
     }
   </style>
   
 
-  </nav>
+ 
 
 <body>
     <div style="text-align: center;">
-        <h1>{{ $page_title }}</h1>
     </div>
 
     <br/>

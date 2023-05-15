@@ -76,9 +76,22 @@ background-color: #167CA5;
 </head>
 
 @if(Auth::user()->role == 0) <!-- Verifica si el rol es de administrador -->
-    @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->
+    @include('layouts.navbar') <!-- Incluye el navbar para el administrador -->   
+    <style>
+      h1 {
+       text-align: center;
+   }
+     
+     .btn-edit {
+         background-color: blue; /* Cambia este valor al color deseado para el botón "Edit Order" */
+         color: white;
+     }
+     
+ </style> 
+        <h1>{{ $page_title }}</h1>
+
     <ul>
-      <li><a href="{{ route('route.edit') }}">Edit Status</a></li>
+      <a href="{{ route('route.edit') }}"><button class="btn-edit">Edit Status</button></a>
 
   </ul>
 
@@ -102,7 +115,12 @@ background-color: #167CA5;
             <button type="submit" class="logout-button">Cerrar sesión</button>
         </form>
     </div>
+  </nav>
+  <style> h1{text-align: center;}</style>
+
+  <h1>{{ $page_title }}</h1>
     @endif
+    
     <style>
         .logout-button {
             background-color: #167CA5;
@@ -124,12 +142,11 @@ background-color: #167CA5;
     </style>
     
   
-    </nav>
-         
+   
+
 <body>
 
     <div style="text-align: center;">
-        <h1>{{ $page_title }}</h1>
     </div>
 
     <br/>
