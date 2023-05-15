@@ -125,7 +125,7 @@
                         <tr>
                             <td>{{ $order->id }}</td>
                             <td>{{ $order->client_id }}</td>
-                         
+                        
                             <td><form action="{{ route('update-Status', ['id' => $order->id]) }}" method="POST"> @csrf  @method('PUT') <input type="text" name="status" value="{{ $order->status }}"></td>
 
                             <td>{{ $order->subtotal }}</td>

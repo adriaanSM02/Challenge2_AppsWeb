@@ -48,9 +48,9 @@ class WarehouseController extends Controller
             $order = new Requests;
     
             // Asignar los valores de los campos
-            $order->product_id = $order->input('product_id');
-            $order->quantity = $order->input('quantity');
-            $order->status = $order->input('status');
+            $order->product_id = $request->product_id;
+            $order->quantity = $request->input('quantity');
+            $order->status = $request->input('status');
             $order->created_at = null;
             $order->updated_at = now();
     
